@@ -64,6 +64,7 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -106,6 +107,15 @@ GEM
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
+    pry (0.9.12.6)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.5)
@@ -139,6 +149,8 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    request_store (1.4.1)
+      rack (>= 1.4)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.6.0)
@@ -155,6 +167,7 @@ GEM
     selenium-webdriver (3.14.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -200,8 +213,12 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
+  pry
+  pry-nav
+  pry-remote
   puma (~> 3.11)
   rails (~> 5.2.1)
+  request_store
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
