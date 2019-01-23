@@ -2,7 +2,7 @@ require 'swagger_helper'
 
 describe 'Resources API' do
 
-  path '/resource' do
+  path '/resources' do
     post 'Create a resource' do
         tags 'Resources'
         consumes 'application/json'
