@@ -52,9 +52,10 @@ group :development do
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-nav'
-  gem 'rspec'
-  gem 'rspec-rails'
 end
+
+gem 'rspec'
+gem 'rspec-rails'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -62,8 +63,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec'
-  gem 'rspec-rails'
 end
 
 group :production do
