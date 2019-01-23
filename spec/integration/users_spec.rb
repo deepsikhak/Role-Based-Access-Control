@@ -2,15 +2,15 @@ require 'swagger_helper'
 
 describe 'Users API' do
 
-  path 'users' do
+  path '/users' do
 
     post 'Create a user' do
         tags 'Users'
         consumes 'application/json'
         produces 'application/json'
-        parameter name: :body, in: :body, :description => 'User Details', schema: {
+        parameter name: :body, in: :body, schema: {
             type: :object,
-            properties:{
+            properties: {
                 user:{
                     type: :object
                     properties: {
@@ -18,17 +18,15 @@ describe 'Users API' do
                         phone: {type: :string},
                     }
                 }
-            }
+            },
+            required: [ 'name', 'phone' ]
         }
       response '200', 'User created' do
         examples 'application/json' => {
             success: 'true',
             message: 'User created'
         }
-        let(:user) {
-            let(:name) {"shallini"}
-            let(:phone) {"1010101099"}
-        }
+        let(:user) { { name: 'shalini', phone: '9988771122' } }
         run_test!
       end
     end
