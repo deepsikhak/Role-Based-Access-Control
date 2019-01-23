@@ -21,16 +21,6 @@ class RolesController < ApplicationController
         end
     end
 
-    # def update
-    #     user= User.find(params[:id])
-    #     user.update_attribute(:name,params[:name]) #Only Updating name attribute for now
-    #     if user.save
-    #         render json: {"success": true, "message": "User name updated"}
-    #     else
-    #         render json: {"success": false, "message": "Couldnt be updated"}
-    #     end
-    # end
-
     def destroy
         role= Role.find(params[:id]).destroy
         if role.destroy
