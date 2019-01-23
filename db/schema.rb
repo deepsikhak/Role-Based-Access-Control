@@ -31,11 +31,6 @@ ActiveRecord::Schema.define(version: 2019_01_23_061814) do
   enable_extension "pgrowlocks"
   enable_extension "pgstattuple"
   enable_extension "plpgsql"
-  enable_extension "plv8"
-  enable_extension "tablefunc"
-  enable_extension "unaccent"
-  enable_extension "uuid-ossp"
-  enable_extension "xml2"
 
   create_table "actions", force: :cascade do |t|
     t.string "name"

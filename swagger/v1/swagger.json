@@ -124,7 +124,7 @@
         }
       }
     },
-    "/resource": {
+    "/resources": {
       "post": {
         "summary": "Create a resource",
         "tags": [
