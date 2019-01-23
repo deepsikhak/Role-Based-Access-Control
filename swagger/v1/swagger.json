@@ -5,5 +5,670 @@
     "version": "v1"
   },
   "paths": {
+    "/permissions": {
+      "post": {
+        "summary": "Create a permission",
+        "tags": [
+          "Permission"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "role_id": {
+                      "type": "integer"
+                    },
+                    "action_id": {
+                      "type": "integer"
+                    },
+                    "resource_id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "role_id",
+                "action_id",
+                "resource_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "permission created",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "permission created"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/permissions/all_resources?id= ": {
+      "get": {
+        "summary": "Given a permission find its resources along with permissions ",
+        "tags": [
+          "Permission"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "role_id",
+            "in": "query",
+            "type": "number",
+            "description": "role id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permissions",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "data": [
+                  "Location",
+                  "Timings",
+                  "dashboard"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/permissions?id= ": {
+      "delete": {
+        "summary": "Deletes a Permission with provided user_id ",
+        "tags": [
+          "Permission"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "permission id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "successfully deleted"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resource": {
+      "post": {
+        "summary": "Create a resource",
+        "tags": [
+          "Resources"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "Resource created"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resources?id= ": {
+      "get": {
+        "summary": "Shows a resource with provided resource_id ",
+        "tags": [
+          "Resources"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "Resource id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "name": "dashboard"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a Resource with provided resource_id ",
+        "tags": [
+          "Resources"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "resource id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "Resource deleted"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/role_users": {
+      "post": {
+        "summary": "Create a user role",
+        "tags": [
+          "User Roles"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "role_id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user_id",
+                "role_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User created",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "successfully created"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/role_users/all_users?user_id= ": {
+      "get": {
+        "summary": "Given a user find its roles ",
+        "tags": [
+          "User Roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "type": "number",
+            "description": "user id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "UserRoles",
+            "examples": {
+              "application/json": {
+                "data": [
+                  "developer"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/role_users/all_roles?role_id= ": {
+      "get": {
+        "summary": "Shows all users with provided role_id ",
+        "tags": [
+          "User Roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "role_id",
+            "in": "query",
+            "type": "number",
+            "description": "role id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "UserRoles",
+            "examples": {
+              "application/json": {
+                "data": [
+                  "ABC",
+                  "himess",
+                  "shailla"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/role_users?id= ": {
+      "delete": {
+        "summary": "Deletes a role with provided role_id ",
+        "tags": [
+          "User Roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "role id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "Successfully deleted"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles": {
+      "post": {
+        "summary": "Create a role",
+        "tags": [
+          "Roles"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "roles": {
+                  "type": "object",
+                  "properties": {
+                    "designation": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "designation"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "Roles created"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles?id= ": {
+      "get": {
+        "summary": "Shows a roles with provided roles_id ",
+        "tags": [
+          "Roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "Role id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles",
+            "examples": {
+              "application/json": {
+                "id": 3,
+                "designation": "developer"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a Role with provided roles_id ",
+        "tags": [
+          "Roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "Role id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "Role deleted"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Create a user",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "phone"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User created",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "User created"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/all_resources?id= ": {
+      "get": {
+        "summary": "Given a user find its resources along with permissions ",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "user id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "resources": [
+                  {
+                    "name": "Location",
+                    "action": "read"
+                  },
+                  {
+                    "name": "Timings",
+                    "action": "read"
+                  },
+                  {
+                    "name": "dashboard",
+                    "action": "delete"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users?id= ": {
+      "get": {
+        "summary": "Shows a user with provided user_id ",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "user id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "id": 10,
+                "name": "bhumika",
+                "phone": "8899774222"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Updated a user ",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "user id"
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "User name updated"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a user with provided user_id ",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "description": "user id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources",
+            "examples": {
+              "application/json": {
+                "success": "true",
+                "message": "User deleted"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
