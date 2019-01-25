@@ -15,7 +15,10 @@ class PermissionsController < ApplicationController
             object = Permission.where(:role_id=>params[:role_id])
             resources=[]
             object.each do |i|
-                resources<<Resource.find(i[:resource_id]).name
+                resources<<{
+                    "resource": Resource.find(i[:resource_id]).name,
+                    "action": i.action.name
+                }
             end
             render json: {"data":resources}
         rescue Exception => e
