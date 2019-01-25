@@ -275,40 +275,9 @@
         }
       }
     },
-    "/role_users/all_users?user_id= ": {
+    "/role_users/all_users?role_id= ": {
       "get": {
         "summary": "Given a user find its roles ",
-        "tags": [
-          "User Roles"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "query",
-            "type": "number",
-            "description": "user id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "UserRoles",
-            "examples": {
-              "application/json": {
-                "data": [
-                  "developer"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/role_users/all_roles?role_id= ": {
-      "get": {
-        "summary": "Shows all users with provided role_id ",
         "tags": [
           "User Roles"
         ],
@@ -332,6 +301,37 @@
                   "ABC",
                   "himess",
                   "shailla"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/role_users/all_roles?user_id= ": {
+      "get": {
+        "summary": "Shows all users with provided role_id ",
+        "tags": [
+          "User Roles"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "type": "number",
+            "description": "user id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "UserRoles",
+            "examples": {
+              "application/json": {
+                "data": [
+                  "developer"
                 ]
               }
             }

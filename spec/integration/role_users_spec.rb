@@ -31,26 +31,9 @@ describe 'User Roles API' do
     end
   end
 
-  path '/role_users/all_users?user_id= ' do
+  path '/role_users/all_users?role_id= ' do
 
     get 'Given a user find its roles ' do
-        tags 'User Roles'
-        produces 'application/json'
-        parameter name: :user_id, :in => :query, :type => :number, :description => 'user id'
-        response '200', 'UserRoles' do
-            examples 'application/json' => {
-                data: [
-                    'developer'
-                ]
-            }
-            let(:user_id) {3}
-            run_test!
-        end
-    end
-  end
-
-  path '/role_users/all_roles?role_id= ' do
-    get 'Shows all users with provided role_id ' do
         tags 'User Roles'
         produces 'application/json'
         parameter name: :role_id, :in => :query, :type => :number, :description => 'role id'
@@ -63,6 +46,23 @@ describe 'User Roles API' do
                 ]
             }
             let(:role_id) {3}
+            run_test!
+        end
+    end
+  end
+
+  path '/role_users/all_roles?user_id= ' do
+    get 'Shows all users with provided role_id ' do
+        tags 'User Roles'
+        produces 'application/json'
+        parameter name: :user_id, :in => :query, :type => :number, :description => 'user id'
+        response '200', 'UserRoles' do
+            examples 'application/json' => {
+                data: [
+                    'developer'
+                ]
+            }
+            let(:user_id) {7}
             run_test!
         end
     end
