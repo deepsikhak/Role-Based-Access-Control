@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/bernat/best_in_place.git
+  revision: bc00bb7912193ea5c9c8984455cb5fe01905e6cb
+  specs:
+    best_in_place (3.1.1)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -317,6 +325,7 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    will_paginate (3.1.6)
     xpath (3.1.0)
       nokogiri (~> 1.8)
 
@@ -326,6 +335,7 @@ PLATFORMS
 DEPENDENCIES
   active_admin_role
   activeadmin
+  best_in_place!
   bootsnap (>= 1.1.0)
   byebug
   cancan
@@ -356,6 +366,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate (~> 3.1.0)
 
 RUBY VERSION
    ruby 2.5.1p57

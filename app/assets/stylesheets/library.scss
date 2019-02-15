@@ -1,0 +1,12 @@
+.purr {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 250px;
+    padding: 15px;
+    background-color: rgba(155,0,0,0.7);
+    border-radius: 5px;
+    z-index: 9999;
+    color: white;
+    &:first-letter { text-transform: uppercase; }
+  }

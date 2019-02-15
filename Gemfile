@@ -29,6 +29,8 @@ gem 'devise'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
+gem 'will_paginate', '~> 3.1.0'
+gem 'best_in_place', github: 'bernat/best_in_place'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
